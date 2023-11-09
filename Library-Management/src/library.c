@@ -55,7 +55,10 @@ void display_books(struct Library *lib)
 
 
     printf("###################################################################################\n");
-
+    if (lib->num_books == 0) 
+    {
+        printf("No books added yet!\n");
+    }
     for (int i = 0; i<lib->num_books; i++)
     {
         struct Book book = lib->books[i];
