@@ -1,6 +1,8 @@
 #ifndef LIBRARY_H
 #define LIBRARY_H
 
+extern const int NUM_OF_BOOKS;
+
 struct Book
 {
     char title[100];
@@ -11,7 +13,7 @@ struct Book
 struct Library
 {
     int num_books;
-    struct Book books[200];
+    struct Book books[];
 };
 
 void add_book(struct Library *lib, char title[100], char author[100]);

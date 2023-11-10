@@ -2,7 +2,9 @@
 #include "library.h"
 #include <string.h>
 
-void remove_element_from_array(struct Book books[200], int ind, int max)
+const int NUM_OF_BOOKS = 200;
+
+void remove_element_from_array(struct Book books[NUM_OF_BOOKS], int ind, int max)
 {
     for (int i = ind; i < max; i++)
     {
@@ -14,9 +16,9 @@ void remove_element_from_array(struct Book books[200], int ind, int max)
 void add_book(struct Library *lib, char title[100], char author[100])
 {
     //check if maximum capacity is reached
-    if (lib->num_books >= 199) 
+    if (lib->num_books >= NUM_OF_BOOKS - 1) 
     {
-        printf("Maximum capacity reached. Book not added, remove another to add this one.\n");
+        printf("Maximum capacity of %d reached. Book not added, remove another to add this one.\n", NUM_OF_BOOKS);
         return;
     }
 

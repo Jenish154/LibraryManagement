@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "library.h"
 
 void handle_display_book(struct Library *lib)
@@ -70,13 +71,17 @@ void display_menu(struct Library *lib)
 
 int main()
 {
-    struct Library lib = 
+    /*struct Library lib = 
     {
         .books = {},
         .num_books = 0
-    };
+    };*/
 
-    display_menu(&lib);
-    
+    //because i use variable length allocation so use malloc
+    struct Library *lib = malloc(sizeof(struct Library) + NUM_OF_BOOKS * sizeof(struct Book));
+    lib->num_books = 0;
+
+    display_menu(lib);
+    free(lib);
     return 0;
 }
